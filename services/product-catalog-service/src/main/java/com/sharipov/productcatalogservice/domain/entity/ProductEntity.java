@@ -4,12 +4,14 @@ import io.micrometer.core.annotation.Counted;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
 @Entity
 @Getter
 @Setter
+@ToString
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +20,8 @@ public class ProductEntity {
     private String name;
     private String description;
     private BigDecimal price;
-    @Column(name = "category_id")
-    private Long categoryId;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "category_id", updatable = false, insertable = false)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "category_id")
     private CategoryEntity category;
 }

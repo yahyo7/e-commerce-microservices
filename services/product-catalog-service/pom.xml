@@ -48,7 +48,15 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-<!--        &lt;!&ndash; MapStruct core dependency &ndash;&gt;-->
+        <!-- Prometheus -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>1.13.3</version>
+        </dependency>
+
+
+        <!--        &lt;!&ndash; MapStruct core dependency &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>org.mapstruct</groupId>-->
 <!--            <artifactId>mapstruct</artifactId>-->

@@ -1,9 +1,6 @@
 package com.sharipov.productcatalogservice.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +16,14 @@ public class CategoryEntity {
     private Long id;
     private String name;
     private String description;
+
+    @Column(name = "parent_category_id")
+    private Long parentId;
+
+    @ManyToOne
+    @JoinColumn(name = "parent_category_id", insertable = false, updatable = false)
     private CategoryEntity parentCategory;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ProductEntity> products;
 }

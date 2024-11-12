@@ -1,0 +1,32 @@
+###Get Product
+GET localhost:8080/v1/product
+
+###Get Product by id
+GET localhost:8080/v1/product/1
+
+
+###Create Product
+POST localhost:8080/v1/product
+Content-Type: application/json
+
+{
+  "name": "Cass",
+  "title": "Pivo",
+  "description": "Alcocol piva",
+  "price": 4500
+}
+
+###Create Product with category
+POST localhost:8080/v1/product
+Content-Type: application/json
+
+{
+  "name": "Aroq",
+  "title": "aro",
+  "description": "Alcocol piva",
+  "price": 4300,
+  "category": {
+      "name": "Aroq",
+      "description": "Faqat aro sotiladi"
+    }
+}

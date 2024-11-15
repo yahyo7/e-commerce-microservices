@@ -1,9 +1,6 @@
 package com.sharipov.shoppingcartservice.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +14,12 @@ public class CartItemEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long productId;
+    private String productName;
     private Integer quantity;
     private BigDecimal price;
+    @Column(name = "cart_id")
+    private Long cartId;
+    @ManyToOne
+    @JoinColumn(name = "cart_id", updatable = false, insertable = false)
+    private CartEntity cart;
 }

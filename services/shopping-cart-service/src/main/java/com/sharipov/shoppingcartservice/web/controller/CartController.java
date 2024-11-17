@@ -43,17 +43,17 @@ public class CartController {
     }
 
 
-//    @DeleteMapping("{cart-id}")
-//    public ResponseEntity<Void> deleteCartById(@PathVariable("cart-id") Long id){
-//
-//    }
+    @DeleteMapping("{cart-id}")
+    public ResponseEntity<Void> deleteCartById(@PathVariable("cart-id") Long id){
+        cartService.deleteCart(id);
+        return (ResponseEntity<Void>) ResponseEntity.ok();
+    }
 
     @DeleteMapping("/{cart-id}/{id}")
     public ResponseEntity<Void> deleteItemToCart(@PathVariable("cart-id") Long cartId,
                                                  @PathVariable("id") Long id){
         cartService.removeItemFromCart(cartId, id);
         return (ResponseEntity<Void>) ResponseEntity.ok();
-
     }
 
 

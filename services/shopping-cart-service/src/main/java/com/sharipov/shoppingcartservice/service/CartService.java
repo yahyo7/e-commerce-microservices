@@ -13,6 +13,7 @@ public interface CartService {
     CartEntity updateItemInCart(Long cartId, Long itemId, CartItemEntity updateItem);
 
     void removeItemFromCart(Long cartId, Long itemId);
+    void deleteCart(Long id);
 
 
 }

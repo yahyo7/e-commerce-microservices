@@ -1,2 +1,4 @@
-package com.sharipov.orderservice.web.controller;public class OrderController {
+package com.sharipov.orderservice.web.controller;
+
+public class OrderController {
 }
